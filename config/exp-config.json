@@ -1,0 +1,18 @@
+{
+    "data": {
+        "source": {
+            "folder_id": "1z9DRYYu8KpDCCrv1zK8I6JlVirWkX8zr",
+            "filename": "measures_global.xlsx"
+        },
+        "output": {
+            "folder_id": "1z9DRYYu8KpDCCrv1zK8I6JlVirWkX8zr",
+            "filename": "Experiments_data_summary.xlsx"
+        }
+    },
+    "training": { 
+        "prediction_type": "binary_classification",
+        "target_column": "None",
+        "excluded_columns": [],
+        "first_date": "2023-11-01"
+    }
+}
