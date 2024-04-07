@@ -4,11 +4,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def formatted_colorbar(ax):
-    """Adds a colorbar with a custom formatter to an existing heatmap axis."""
-    cbar = ax.collections[0].colorbar  
-    cbar.ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: f"{x:,d}"))
-
 class Preprocess():
     def __init__(self, drive, exp_config):        
         self.drive = drive
