@@ -47,10 +47,11 @@ class GoogleDrive:
         else:
             return None
 
-    def write_file(self, df, folder_id, filename):
+    def write_file(self, file, folder_id, filename):
         # Set mime type for file type
         type_dict = {'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 
-                     'csv': 'text/csv'}
+                     'csv': 'text/csv',
+                     'jpg': 'image/jpeg'}
         file_type = filename.split('.')[1]
         mime_type = type_dict.get(file_type)
 
@@ -58,9 +59,12 @@ class GoogleDrive:
         output = io.BytesIO()
         if file_type == 'xlsx':
             with pd.ExcelWriter(output, engine='openpyxl') as writer:
-                df.to_excel(writer, index=False)
+                file.to_excel(writer, index=False)
         elif file_type == 'csv':
-            df.to_csv(output, index=False)
+            file.to_csv(output, index=False)
+        elif file_type == 'jpg':
+            img_bytes = io.BytesIO()
+            file.savefig(img_bytes, format='jpg')
         output.seek(0)
 
         # Search for an existing file with the same name in the folder
@@ -89,7 +93,7 @@ class GoogleDrive:
                 return created_file.get('id')
         except Exception as e:
             print(f"An error ocurred while writing {filename}: {e}")
-        
+
 
 if __name__ == '__main__':
     gd = GoogleDrive()
