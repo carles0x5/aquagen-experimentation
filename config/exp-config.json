@@ -11,8 +11,11 @@
     },
     "training": { 
         "prediction_type": "binary_classification",
-        "target_column": "None",
-        "feature_columns": [],
+        "target_column": "Class",
+        "feature_columns": ["LAS_abs", "TRA_abs", "LUX_abs", "RHL_abs", "CQSS_abs", "AHY_abs", 
+                            "CEP_abs", "CVI_abs", "RSTA_abs", "ASA_abs", "VAN_abs", "Blanc_abs", 
+                            "LAS_gfp", "TRA_gfp", "LUX_gfp", "RHL_gfp", "CQSS_gfp", "AHY_gfp", 
+                            "CEP_gfp", "CVI_gfp", "RSTA_gfp", "ASA_gfp", "VAN_gfp", "Blanc_gfp"],
         "first_date": "2023-11-01"
     }   
 
