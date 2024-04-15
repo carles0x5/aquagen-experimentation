@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 from src.utils.google_drive import GoogleDrive
-from src.s01_preprocess.preprocess import Preprocess
+from src.input_summary.preprocess import Preprocess
 
 EXPERIMENT_CONFIG_PATH = os.getenv('EXPERIMENT_CONFIG_PATH')
 
@@ -17,8 +17,11 @@ def run(output):
 
     # Execute main process
     if output == 'input_summary':
-        pp.experiments_summary()
-        print('Experiment summary uploaded to Google Drive')
+        done = pp.experiments_summary()
+        if done:
+            print('Experiment summary uploaded to Google Drive')
+        else:
+            print('Failed to upload experiment summary to Google Drive')
     else:
         pass
 

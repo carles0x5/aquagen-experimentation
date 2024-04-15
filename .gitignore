@@ -161,6 +161,7 @@ cython_debug/
 
 # Models
 models/*
+tuning-dir/*
 
 # Secrets
 config/gcp-credentials.json
